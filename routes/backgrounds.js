@@ -5,18 +5,21 @@ var mongoose = require('mongoose');
 var background = require('../models/background.js');
 
 router.get('/', function(req, res, next) {
-  //res.send('respond with a resource');
   background.find(function (err, data) {
     if (err) return next(err);
     res.json(data);
   });
 });
 
-router.get('/:id', function(req, res, next) {
-  background.findById(req.params.id, function (err, data){
+router.get('/:userName', function(req, res, next) {
+  background.findOne({ userName: req.params.userName }, function (err, data){
     if (err) return next(err);
     res.json(data);
   });
+  // background.findById(req.params.id, function (err, data){
+  //   if (err) return next(err);
+  //   res.json(data);
+  // });
 });
 
 router.put('/:id', function(req, res, next) {

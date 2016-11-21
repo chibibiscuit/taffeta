@@ -1,0 +1,24 @@
+<div class="view">
+        
+        <div class="pan-container" ng-mousemove="vm.onMouseMove($event)">
+                <div class="loading-spinner" ng-if="!vm.background"></div>
+
+                <img id="pan" 
+                     class="pan"
+                     ng-src="{{ ::vm.background.url}}" 
+                     ng-style="{ 'left': -vm.xPos, 'top': -vm.yPos }"
+                     ng-if="vm.background"/>
+                <div class="contents">
+                        <span ng-if="vm.background">{{ vm.xPos  + ',' + vm.yPos }}</span>
+                        {{vm.id}}
+                        <div class="icon-link-container flex-container-horizontal">
+                                <div class="icon-link flex-auto" ng-repeat="link in vm.links">
+                                        <a href="{{ link.url }}">
+                                                <img class="icon-link-image" ng-src="/images/{{ link.icon }}.png" width="100" height="100" />
+                                                <span class="icon-link-text" ng-bind="link.text"></span>
+                                        </a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
