@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost/taffeta')
   .catch((err) => console.error(err));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public'));
 
 app.engine('.html', require('ejs').renderFile);
 

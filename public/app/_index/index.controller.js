@@ -13,11 +13,12 @@ function indexCtrl ($window, $routeParams, backgroundsSvc, linksSvc, $timeout){
     activate();
 
     function activate() {
-        getLinks();
-        $timeout(getBackground, 2000);
-        vm.id = $routeParams.id;
+        
         console.log(vm.id);
-
+        
+        vm.id = $routeParams.id;
+        getBackground();
+        getLinks();
         
         // angular.element($window).bind('resize', function(){
         //     calculateWindowSize();
@@ -29,15 +30,11 @@ function indexCtrl ($window, $routeParams, backgroundsSvc, linksSvc, $timeout){
     function getBackground() {
         backgroundsSvc.get({ id: vm.id }).$promise.then(function(data){
             vm.background = data;
-            // $timeout(function(){
-            //     calculateWindowSize();
-            //     calculatePanSize();
-            // });
         });
     }
 
     function getLinks() {
-        linksSvc.query({ id: 2 }).$promise.then(function(data){
+        linksSvc.query({ id: vm.id }).$promise.then(function(data){
             vm.links = data;
         });
     }

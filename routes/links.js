@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/:userId', function(req, res, next) {
-  link.find({ userId: req.params.userId }, function (err, data){
+router.get('/:userName', function(req, res, next) {
+  link.find({ userName: req.params.userId }, function (err, data){
     if (err) return next(err);
     res.json(data);
   });
