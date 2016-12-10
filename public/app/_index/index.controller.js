@@ -17,19 +17,22 @@ function indexCtrl ($window, $routeParams, backgroundsSvc, linksSvc, $timeout){
         $timeout(getBackground, 2000);
         vm.id = $routeParams.id;
         console.log(vm.id);
-        angular.element($window).bind('resize', function(){
-            calculateWindowSize();
-            calculatePanSize();
-        });
+
+        
+        // angular.element($window).bind('resize', function(){
+        //     calculateWindowSize();
+        //     calculatePanSize();
+        // });
+        // $(document).ready(function(){$('#pan').imagePanning()});
     }
 
     function getBackground() {
         backgroundsSvc.get({ id: vm.id }).$promise.then(function(data){
             vm.background = data;
-            $timeout(function(){
-                calculateWindowSize();
-                calculatePanSize();
-            });
+            // $timeout(function(){
+            //     calculateWindowSize();
+            //     calculatePanSize();
+            // });
         });
     }
 
@@ -72,6 +75,10 @@ function indexCtrl ($window, $routeParams, backgroundsSvc, linksSvc, $timeout){
     function getMouseCoords (event){
         vm.xPos = (vm.panWidth - vm.winWidth) * (event.clientX / vm.winWidth);
         vm.yPos = (vm.panHeight - vm.winHeight) * (event.clientY / vm.winHeight);
+        vm.test = (vm.panWidth - vm.winWidth) * (event.clientX / vm.winWidth) * 100 + '% ' + (vm.panHeight - vm.winHeight) * (event.clientY / vm.winHeight) + '%';
+        // ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'
+
+        // vm.xPos = (vm.panWidth - vm.winWidth) * (event.clientX / vm.winWidth);
+        // vm.yPos = (vm.panHeight - vm.winHeight) * (event.clientY / vm.winHeight);
     }
-    
 }
