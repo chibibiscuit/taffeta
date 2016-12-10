@@ -27,6 +27,15 @@ html, body {
     opacity: 0.3;
     transition: 0.5s opacity ease;
   }
+
+  &.ng-hide-remove {
+    transition: opacity 0.5s linear;
+    opacity: 0;
+  }
+ 
+  &.ng-hide-remove-active {
+    opacity: 0.7;
+  } 
 }
 /*.pan {
   transition-property: top, left;
@@ -74,8 +83,8 @@ html, body {
     /*position: fixed;
     top: 50%;
     margin: -50px;*/
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     /*display: none;*/
     cursor: pointer;
     text-align: center;
@@ -85,7 +94,7 @@ html, body {
       text-decoration: none;
 
       .icon-link-image {
-        padding: 10px;
+        padding: 30px;
       }
 
       .icon-link-text {
