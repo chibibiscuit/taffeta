@@ -1,11 +1,33 @@
-<html ng-app="app">
-  <head>
-    <title>Taffeta Build 0.0.1</title>
-    <link rel='stylesheet' href='/styles/style.css' />
+<html ng-app="taffeta">
+    <head>
+        <title>Taffeta v0.0.1</title>
 
-    <script src='/scripts/lib/angular/angular.min.js'></script>
-  </head>
-  <body>
-    {{ 1 + 1 }}
-  </body>
+        <link rel="stylesheet" href="/scripts/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/common/directives/background-scroller/background-scroller.css" />
+        <link rel="stylesheet" href="/styles/style.css" />
+    </head>
+
+    <body>
+        <div class="congainer-fluid">
+            <ng-view></ng-view>
+        </div>
+        
+        <!-- Library Scripts -->
+        <script src="/scripts/lib/angular/angular.min.js"></script>
+        <script src="/scripts/lib/angular-animate/angular-animate.min.js"></script>
+        <script src="/scripts/lib/angular-resource/angular-resource.min.js"></script>
+        <script src="/scripts/lib/angular-route/angular-route.min.js"></script>
+        <script src="/scripts/lib/jquery/jquery.min.js"></script>
+
+        <!-- App Scripts -->
+        <script src="/app.js"></script>
+        <script src="/app/_index/index.controller.js"></script>
+
+        <!-- Services Scripts -->
+        <script src="/common/services/backgrounds.service.js"></script>
+        <script src="/common/services/links.service.js"></script>
+
+        <!-- Directives Scripts -->
+        <script src="/common/directives/background-scroller/background-scroller.directive.js"></script>
+    </body>
 </html>
