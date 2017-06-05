@@ -6,5 +6,5 @@ var backgroundSchema = new mongoose.Schema({
   url: String,
   updated_at: { type: Date, default: Date.now },
 });
-
+ 
 module.exports = mongoose.model('background', backgroundSchema);
